@@ -1,6 +1,10 @@
 import controlP5.*;
+import processing.serial.*;
+
+Serial port;
 
 ControlP5 cp5;
+
 int colorPickerTop = 10, colorPickerLeft = 10;
 int MATRIX_SIZE = 3;
 LEDMatrix matrix;
@@ -24,6 +28,7 @@ int NUMBER_OF_LED = 16;
 float slice;
 
 void setup() {
+  port = new Serial(this, "COM5", 9600);
   size(920, 1000);
   colorMode(HSB, MAX_HUE, MAX_SATURATION, MAX_BRIGHTNESS, MAX_ALPHA);
    colorPicker = new ColorPicker(colorPickerLeft, colorPickerTop);
@@ -97,6 +102,7 @@ void clearAll() {
   actions.clear();
   matrix.resetColors();
   actionIndex = 0;
+  port.write('q');
 }
 
 class LEDMatrix {

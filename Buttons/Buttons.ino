@@ -1,7 +1,7 @@
 #include <Adafruit_NeoPixel.h>
 #define PIN 6
 
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(12, PIN, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(24, PIN, NEO_GRB);
 
 
 void setup() {
@@ -49,7 +49,7 @@ void loop() {
       strip.fill(yellow, 0, 12);
       strip.show();
     }
-    if(val == 'f'){
+    if(val == 'q'){
       strip.show();
     }
 
